@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Lint with ruff
+        run: |
+          ruff check src tests
+
+      - name: Run tests
+        env:
+          DATABASE_URL: sqlite:///:memory:
+          PIPEFY_PIPE_ID: test_pipe
+          FIELD_CLIENTE_NOME: f_nome
+          FIELD_CLIENTE_EMAIL: f_email
+          FIELD_TIPO_SOLICITACAO: f_tipo
+          FIELD_VALOR_PATRIMONIO: f_valor
+          FIELD_STATUS: f_status
+          FIELD_PRIORIDADE: f_prioridade
+        run: |
+          pytest -v --tb=short
+
+      - name: Sanity import check
+        run: |
+          python -c "from src.main import app; print('OK:', app.title)"
