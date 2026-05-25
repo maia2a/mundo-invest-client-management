@@ -259,6 +259,13 @@ Segurança: IAM least privilege + VPC + Secrets Manager para PIPEFY_AUTH_TOKEN
 - **Secrets Manager** rotaciona tokens sem redeploy.
 - **API Gateway** fornece throttling e WAF.
 
+## 🌐 Links
+
+- 🚀 **Production API**: https://mundo-invest-client-management.onrender.com
+- 📚 **Swagger Docs**: https://mundo-invest-client-management.onrender.com/docs
+- 💻 **Health Check**: https://mundo-invest-client-management.onrender.com/health
+- 📦 **GitHub**: https://github.com/maia2a/mundo-invest-client-management
+
 
 ## 📄 Licença
 
