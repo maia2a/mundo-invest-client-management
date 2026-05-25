@@ -19,8 +19,6 @@ API backend autônoma que simula o sistema interno do Mundo Invest para **cadast
 9. [Idempotência do webhook](#-idempotência-do-webhook)
 10. [Regra de prioridade](#-regra-de-prioridade)
 11. [Visão de produção na AWS](#-visão-de-produção-na-aws)
-12. [Deploy simples para portfólio](#-deploy-simples-para-portfólio)
-13. [Como gravar o vídeo de defesa](#-como-gravar-o-vídeo-de-defesa)
 
 ---
 
